@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import ReactMapGL from 'react-map-gl';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const TOKEN = 'pk.eyJ1Ijoic2FuZHJpbmVheSIsImEiOiJjamg5YTJtbjcwY2dnM2RvMmE2a3J1cDRuIn0.14RFJyegdpbECsgB-clqdA';
 
 class FlatMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
+
+
+
+  state = {
+    viewport: {
+      width: 400,
+      height: 400,
+      latitude: 37.7577,
+      longitude: -122.4376,
+      zoom: 8
+    }
   };
 
   render() {
-    return(
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
-          />
-        </GoogleMapReact>
+    return (
+      <div className="map-container">
+        <ReactMapGL
+          {...this.state.viewport}
+          mapboxApiAccessToken={TOKEN}
+          onViewportChange={(viewport) => this.setState({viewport})}
+        />
       </div>
     );
   }

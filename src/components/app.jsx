@@ -25,9 +25,7 @@ class App extends Component {
           selectedFlat={this.state.selectedFlat}
           selectFlat={this.selectFlat}
         />
-        <div className="map-container">
-          <FlatMap />
-        </div>
+        <FlatMap />
       </div>
     );
   }
