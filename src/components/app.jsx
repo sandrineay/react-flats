@@ -15,14 +15,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="flat-list">
-          <FlatList flats={this.state.flats} />
-        </div>
+        <FlatList flats={this.state.flats} />
         <div className="map-container">
           <FlatMap />
         </div>
       </div>
-    )
+    );
   }
 }
 
